@@ -28,7 +28,7 @@ jobs:
       -  name: maven package 
          run: mvn package
       -  name: verify war file
-         run: ls -lh /target
+         run: ls -lh ./target
 
       - name: Deploy to Development Environment
         run: |
