@@ -30,11 +30,11 @@ jobs:
       -  name: verify war file
          run: ls -lh ./target
 
-      -  name: deploy to development environment
-         run: |
-                 curl -v -u "${{ secrets.TOMCAT_USERNAME_DEV }}:{{ secrets.TOMCAT_PASSWORD_DEV }}" \
-                 -T target/TrainBook-SNAPSHOT.war \
-                 "http://${{ secrets.TOMCAT_HOST_DEV }}:8080/manager/text/deploy?path=/TrainBook&update=true"
+      - name: Deploy to Development Environment
+        run: |
+              curl -v -u "${{ secrets.TOMCAT_USERNAME_DEV }}:${{ secrets.TOMCAT_PASSWORD_DEV }}" \
+              -T target/TrainBook-0.0.1-SNAPSHOT.war \
+              "http://${{ secrets.TOMCAT_HOST_DEV }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 
 
 
