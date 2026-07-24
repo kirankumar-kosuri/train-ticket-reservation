@@ -33,25 +33,25 @@ jobs:
       - name: Deploy to Development Environment
         run: |
               curl -v -u "${{ secrets.TOMCAT_USERNAME_DEV }}:${{ secrets.TOMCAT_PASSWORD_DEV }}" \
-              -T target /TrainBook-1.0.0-SNAPSHOT.war \
+              -T target/TrainBook-1.0.0-SNAPSHOT.war \
               "http://${{ secrets.TOMCAT_HOST_DEV }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 
       - name: Deploy to Test Environment
         run: |
               curl -v -u "${{ secrets.TOMCAT_USERNAME_TEST }}:${{ secrets.TOMCAT_PASSWORD_TEST }}" \
-              -T target /TrainBook-1.0.0-SNAPSHOT.war \
+              -T target/TrainBook-1.0.0-SNAPSHOT.war \
               "http://${{ secrets.TOMCAT_HOST_TEST }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 
       - name: Deploy to Pre-Prod Environment
         run: |
               curl -v -u "${{ secrets.TOMCAT_USERNAME_PRE_PTOD }}:${{ secrets.TOMCAT_PASSWORD_PRE_PROD }}" \
-              -T target /TrainBook-1.0.0-SNAPSHOT.war \
+              -T target/TrainBook-1.0.0-SNAPSHOT.war \
               "http://${{ secrets.TOMCAT_HOST_PRE_PROD }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 
       - name: Deploy to Prod Environment
         run: |
               curl -v -u "${{ secrets.TOMCAT_USERNAME_PROD }}:${{ secrets.TOMCAT_PASSWORD_PROD }}" \
-              -T target /TrainBook-1.0.0-SNAPSHOT.war \
+              -T target/TrainBook-1.0.0-SNAPSHOT.war \
               "http://${{ secrets.TOMCAT_HOST_PROD }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 
 
